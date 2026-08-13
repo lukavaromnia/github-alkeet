@@ -1,51 +1,33 @@
 <!--
-  <<< Author notes: Step 2 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
+  <<< Author notes: Step 3 >>>
+  Just a historic note: the previous version of this step forced the learner
+  to write a pull request description,
+  checked that `main` was the receiving branch,
+  and that the file was named correctly.
 -->
 
-## Tehtävä 2: Lisätään uusi tiedosto ja tehdään commit
+## Tehtävä 3: Avaa pull request
 
-_Teit uuden branchin! :tada:_
+Olet nyt tehnyt commitin, jonka pitäisi näkyä täällä Githubissa. Seuraavaksi tehdään pull request. Pull requestien idea on jakaa ehdottomasi muutokset muille kehittäjille, jotka voivat joko hyväksyä muutokset tai ehdottaa niihin muutoksia. Pull requesteja ei tarvitse käyttää, kun työskentelee yksin, mutta muiden kanssa työskennellessä niin sanotut koodi katselmoinnit (eng. code review) ovet tärkeä osa kehitysprosessia. Katselmoinnissa muut kehittäjät tarkistavat pull requestissa ehdotetun koodin. Lisätietoa: [About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)".
 
-Brancheja (suomeksi haara) käytetään silloin, kun halutaan muokata projektia ilman, että muutokset menevät päähaaraan eli `main` -branchiin.
+### :keyboard: Tehtävä: Tee pull request
 
-Tässä tehtävässä lisätään uusi tiedosto aiemmin luotuun branchiin, tehdään commit ja 'pushataan' muutoset githubiin.
+Pidä nämä ohjeet auki yhdessä välilehdessä ja seuraa ohjeita toisessa välilehdessä, jossa tämä repositorio on auki. 
 
-### :keyboard: Tehtävä: Ensimmäinen commit
+1. Avaa välilehti, jolle avasit tämän repositorion aikaisemmin ja päivitä sivu. Saatat nähdä viestin, joka kertoo edellisessä kohdassa tekemästäsi git push:sta. Ilmoituksessa on nappi **Compare & pull request**. Paina tätä nappia ja siirry suoraan kohtaan 6. Muussa tapauksessa jatka ohjeiden seuraamista seuraavasta kohdasta.
+![screenshot of message and button](/images/compare-and-pull-request.png)
+2. Klikkaa **Pull requests** välilehteä github repositoriossasi (kannattaa avata repositorio toisessa välilehdessä ja pitää nämä ohjeet auki toisessa)
+2. Klikkaa **New pull request**.
+3. Valitse **base:** dropdownista **main** vaihtoehto
+4. Valitse **compare:** dropdownista `my-first-branch`.
 
-1. Pidä nämä ohjeet auki selaimessa ja noudata ohjeita git bashissa ja editorissa.
+   ![screenshot showing both branch selections](/images/pull-request-branches.png)
 
-2. Avaa taas git bash. Varmista, että olet edelleen repositorion kansiossa ja aiemmin tekemässäsi branchissa, ja suorita komento `git pull`
-   - Tällä komennolla varmistat, että lokaali versiosi sisältää kaikki remote version muutokset.
+5. Klikkaa **Create pull request**.
+6. Valitse pull requestillesi otsikko. Oletusarvoisesti otsikko (title) on branchisi nimi. Vaihda otsikoksi teksti `Ensimmäinen tiedosto`.
+7. Seuraavassa kentässä sinun tulee antaa kuvaus pull requestillesi. Kuvaukseen kirjoitetaan, mitä olet tehnyt kyseisessä pull requestissa. Tässä tehtävässä voi laittaa viestiksi esimerkiksi "lisäsin tiedoston"
 
-3. Suorita git bashissa komento `code uusi_tiedosto.md`. Se tekee uuden markdown tiedoston nimeltä 'uusi_tiedosto.md' ja avaa sen vs codessa.
-   - Markdown on tiedostotyyppi, jonka pystyy helposti kääntämään pdf:ksi. Github osaa automaattisesti näyttää markdown tiedostot luettavassa muodossa, ja esimerkiksi readme tiedostot ovat yleensä markdown formaatissa.
+   ![screenshot showing pull request](/images/Pull-request-description.png)
 
-4. Edellisen komennon jälkeen sinulla pitäisi nyt olla auki vs code ja siellä luomasi markdown tiedosto. Kopioi tiedostoon seuraava teksti ja tallenna (ctrl+S pikanäppäin tallentaa tiedoston)
-   ```
-   Tämä on uusi tiedosto!
-   ```
-
-5. Palaa nyt git bashiin ja suorita komento `git status`
-   - `git status` komennolla näet, mihin tiedostoihin on tehty muutoksia, kun verrataan paikallista ja remote versiota repositoriosta
-   - Äsken luomasi tiedosto pitäisi näkyä listassa punaisena, koska se on 'untracked' eli sitä ei ole olemassa remote repositoriossa
-    ![git-status-example](/images/git-status-example.png)
-
-6. Lisätään tiedosto staged tilaan (eli odottamaan commitin tekoa) `git add uusi_tiedosto.md` komennolla. 
-   - `git add` -komento voidaan suorittaa joko yksittäiselle tiedostolle lisäämällä komennon perään lisättävän tiedoston nimi tai lisätä kaikki muutoksia sisältävät tiedostot kerralla komennolla `git add .`
-
-7. Suorita `git status` komento uudelleen. 
-   - Uuden tiedoston pitäisi nyt lukea "changes to be committed" listassa vihreänä
-   ![stage-changes-example](/images/stage-changes-example.png)
-   - Nyt olemme valmiita tekemään commitin. Commitiin lisätään kaikki "changes to be committed" listan muutokset.
-   - Muutoksia voi tarkastella tarkemmin `git diff` komennolla. Jos haluat verrata paikallisia ja remote versioita, suorita komento `git diff origin`
-
-8. Tee seuraavaksi commit. Pystymme tekemään commitin ja lisäämään sille viestin yhdellä komennolla `git commit -m "lisää ensimmäinen tiedosto"`
-   - On mahdollista myös suorittaa pelkkä `git commit` -komento ja sen jälkeen kirjoittaa commit-viesti avautuvassa editorissa.
-   - Hyvän commit-viestin sisällöstä on lisätietoa moodlessa
-   - Voit nyt suorittaa vielä kerran `git status`-komennon. Tietokoneen pitäisi kertoa sinulle, että branchisi on yhden commitin verran edellä remote versiota.
-
-9. "Pushaa" commit suorittamalla komento `git push`
-
-10. Odota jälleen n. 20 sekuntia ja sitten päivitä tämä sivu. [GitHub Actions](https://docs.github.com/en/actions) päivittää seuraavan tehtään ohjeen tähän automaattisesti.
+8. Klikkaa **Create pull request**. Sivu ohjautuu automaattisesti luomaasi pull requestiin.
+9. Odota n. 20 sekuntia ja päivitä tämä ohje sivu [GitHub Actions](https://docs.github.com/en/actions) päivittää automaattisesti ohjeet seuraavaan tehtävään.
